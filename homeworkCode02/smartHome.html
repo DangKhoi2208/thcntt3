@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <script   src="https://code.jquery.com/jquery-1.12.4.js"    integrity="sha256
+    Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" 
+          crossorigin="anonymous"></script> 
+</head>
+<body>
+    <div class="header">
+        <div class="header-smartHome">
+            <h1>Smart Home</h1>
+        </div>
+
+        <div class="header-livingRoom">
+            <h2 class="text_livingRoom">Living Room</h2>
+        </div>
+        
+        <div class="main">
+            <div class="container">
+                <div id="smarthome" class="row"> //padding data vao` html
+                    
+                </div>
+
+            </div>
+            
+            <div class="footer">
+                <span>
+                    TNCNTT Wemos D1 Sample
+                </span>
+            </div>
+        </div>
+    </div>
+
+   
+        <!-- <div class="devices">
+            <div class="lights">
+                <span class="material-symbols-outlined">
+                    lightbulb
+                    </span>
+            <span>Light</span>
+                
+        </div>
+        <div class="fans">
+            <span class="material-symbols-outlined">
+                toys_fan
+                </span>
+        <span>Fans</span>
+            
+    </div>
+    <div class="TV">
+        <span class="material-symbols-outlined">
+            desktop_windows
+            </span>
+    <span>TV</span>
+    </div>
+        </div> -->
+        
+   
+
+<script> 
+    $(document).ready(function(){ 
+ 
+        loadSmartHome(); 
+         
+    function loadSmartHome(){ 
+ 
+        $.ajax({ 
+            type:'GET', 
+            contentType: "application/json", 
+            dataType: 'json', 
+            url: 'http://localhost:8888/smarthome', 
+            success: function(data){ 
+                    var str=""; 
+                    $.each(data, function(i,item){ 
+ 
+                            str+='<div class="col-md-14 device">'; 
+                          
+                            str+='<img class="img-thumbnail" src="./images/2.jpg" />'; 
+                            str+='<h5>'+item.name+'</h5>'; 
+                            
+                           
+                            
+                             
+                            
+                          
+                     
+                        
+                            
+                            
+                           
+                            
+            
+                            
+                    }) 
+                    console.log(data); 
+                    $("#smarthome").html(str); 
+                     
+            }, 
+error: function(data){ 
+alert("error"); 
+} 
+}) 
+} 
+}) 
+</script> 
+
